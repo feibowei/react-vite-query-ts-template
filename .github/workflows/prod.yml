@@ -26,7 +26,5 @@ jobs:
       - name: Deploy to Tencent CloudBase
         uses: TencentCloudBase/cloudbase-action@v2
         with:
-          secret_id: ${{ secrets.SECRET_ID }}
-          secret_key: ${{ secrets.SECRET_KEY }}
-          bucket: ${{ secrets.BUCKET }}
-          region: ap-hongkong
+          secretId: ${{ secrets.SECRET_ID }}
+          secretKey: ${{ secrets.SECRET_KEY }}
