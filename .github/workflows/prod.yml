@@ -23,8 +23,11 @@ jobs:
       - name: Build project
         run: yarn && yarn build
 
-      - name: Deploy to Tencent CloudBase
-        uses: TencentCloudBase/cloudbase-action@v2
+      - name: Upload COS
+        uses: Bluefissure/tencent-cos-action@v0.1.1
         with:
-          secretId: ${{ secrets.SECRET_ID }}
-          secretKey: ${{ secrets.SECRET_KEY }}
+          args: upload -r ./dist/ /
+          secret_id: ${{ secrets.SECRET_ID }}
+          secret_key: ${{ secrets.SECRET_KEY }}
+          bucket: ${{ secrets.BUCKET }}
+          region: ap-nanjing
