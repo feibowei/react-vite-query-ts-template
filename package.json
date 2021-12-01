@@ -1,11 +1,11 @@
 {
   "version": "0.0.1",
   "scripts": {
+    "build": "vite build",
     "dev": "vite",
-    "build": "tsc && vite build",
-    "serve": "vite preview",
+    "lint": "eslint -c ./.eslintrc.js --ext .ts,.tsx,.js,.jsx",
     "prepare": "husky install",
-    "lint": "eslint -c ./.eslintrc.js --ext .ts,.tsx,.js,.jsx"
+    "serve": "vite preview"
   },
   "dependencies": {
     "axios": "0.21.4",
