@@ -23,11 +23,12 @@ jobs:
       - name: Build project
         run: yarn && yarn build
 
-      - name: Upload COS
-        uses: Bluefissure/tencent-cos-action@v0.1.1
-        with:
-          args: delete -r -f / && upload -r ./dist/ /
-          secret_id: ${{ secrets.SECRET_ID }}
-          secret_key: ${{ secrets.SECRET_KEY }}
-          bucket: ${{ secrets.BUCKET }}
-          region: ap-hongkong
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@v2.1.1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SOURCE: "dist/" 
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          REMOTE_USER: root 
+          TARGET: ${{ secrets.REMOTE_TARGET }}
