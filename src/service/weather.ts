@@ -1,5 +1,8 @@
 import { getData } from '../utils/request';
 
+interface WeatherData {
+  air_tips: string;
+}
 interface WeatherRes {
   cityid: string;
   city: string;
@@ -7,10 +10,11 @@ interface WeatherRes {
   country: string;
   countryEn: string;
   update_time: string;
+  data: WeatherData[];
 }
 
 export const getWeather = () => {
   return getData<WeatherRes>(
-    'http://www.tianqiapi.com/api?version=v9&appid=23035354&appsecret=8YvlPNrz'
+    'http://gfeljm.tianqiapi.com/api?unescape=1&version=v9&appid=43552355&appsecret=SPjQ2mO2'
   );
 };
